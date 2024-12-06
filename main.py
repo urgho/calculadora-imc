@@ -53,16 +53,13 @@ if st.button("Calcular seu IMC"):
         st.write(f"Classificação: **{classe}**")
         st.write(f"Comparação com seu IMC ideal (21.7): **{imcDelta:.2f}**")
         
-        perderPeso = imcIdeal*(altura**0.5)
-        pesoIdeal = peso - perderPeso
-
 
         #Dividir a linha em duas colunas
-        col1, col2, col3 = st.columns(3)
+        col1, col2 = st.columns(2)
 
         col1.metric("Classificação de Peso", classe, f"{imcDelta:.2f}", delta_color="inverse")
         col2.metric("IMC", f"{imc:.2f}", f"{imcDelta:.2f}", delta_color="off")
-        col3.metric("Peso Ideal", f"{pesoIdeal:.2f}", f"Precisa perder {perderPeso:.1f}")
+        
 
         #Criar uma linha
         st.divider()
